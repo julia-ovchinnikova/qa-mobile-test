@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Hello World">
+
+    <parameter name="suiteOwner" value="julia-ovchinnikova"/>
+
+    <test name="Hello World test">
+        <classes>
+            <class name="com.alfa.HelloWorldTest" />
+        </classes>
+    </test>
+
+</suite>
