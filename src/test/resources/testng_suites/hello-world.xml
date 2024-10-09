@@ -1,7 +1,7 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Hello World">
 
-    <parameter name="suiteOwner" value="julia-ovchinnikova"/>
+    <parameter name="suiteOwner" value="Julia Ovchinnikova"/>
 
     <test name="Hello World test">
         <classes>

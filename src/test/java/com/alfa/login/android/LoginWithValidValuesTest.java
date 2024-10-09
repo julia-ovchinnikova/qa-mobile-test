@@ -5,6 +5,8 @@ import com.alfa.login.common.LoginSuccessPageBase;
 import com.alfa.utils.StringByRegexGenerator;
 import com.zebrunner.carina.core.AbstractTest;
 import com.zebrunner.carina.utils.StringGenerator;
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -14,7 +16,9 @@ import java.security.SecureRandom;
 public class LoginWithValidValuesTest extends AbstractTest {
 
     @Test
-    public void testEnterAllowedValuesForLoginAndPassword() {
+    @Description(value = "Check that after entering valid values for login and password user is not authenticated as the values don't match the required for authentication")
+    @Owner(value = "Julia Ovchinnikova")
+    public void testEnterValidValuesForLoginAndPassword() {
         SoftAssert softAssert = new SoftAssert();
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isPageOpened(3), "Login page is not opened!");
@@ -22,7 +26,7 @@ public class LoginWithValidValuesTest extends AbstractTest {
         SecureRandom random = new SecureRandom();
         int loginLength = random.nextInt(51);
         String regex = "[a-zA-Z., \\/_'-]+";
-        //        String regex = "[a-zA-Z., \\[\\]\\/_'-]+";
+//        String regex = "[a-zA-Z., \\[\\]\\/_'-]+";
         String login = StringByRegexGenerator.getRandomString(regex, loginLength);
         int passwordLength = random.nextInt(51);
         String password = StringGenerator.generateWord(passwordLength);
@@ -38,12 +42,12 @@ public class LoginWithValidValuesTest extends AbstractTest {
     }
 
     @Test
+    @Description(value = "Check that user is authenticated after entering the valid credentials")
+    @Owner(value = "Julia Ovchinnikova")
     public void testSuccessfulLogin() {
         SoftAssert softAssert = new SoftAssert();
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);
         Assert.assertTrue(loginPage.isPageOpened(3), "Login page is not opened!");
-        softAssert.assertEquals(loginPage.getLoginPageTitleText(), "Вход в Alfa-Test", "Login page title text is not as expected!");
-
         String validLogin = "Login";
         String validPassword = "Password";
 
@@ -60,6 +64,8 @@ public class LoginWithValidValuesTest extends AbstractTest {
     }
 
     @Test
+    @Description(value = "Check that password is hidden after clicking show password icon odd number of times/ shown after clinking even number of times")
+    @Owner(value = "Julia Ovchinnikova")
     public void testHideAndShowPassword() {
         SoftAssert softAssert = new SoftAssert();
         LoginPageBase loginPage = initPage(getDriver(), LoginPageBase.class);

@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Login feature tests">
+
+    <parameter name="suiteOwner" value="Julia Ovchinnikova"/>
+
+    <test name="Login with valid values test">
+        <classes>
+            <class name="com.alfa.login.android.LoginWithValidValuesTest"/>
+        </classes>
+    </test>
+    <test name="Login with invalid values test">
+        <classes>
+            <class name="com.alfa.login.android.LoginWithInvalidValuesTest"/>
+        </classes>
+    </test>
+
+</suite>

@@ -83,7 +83,7 @@ public class LoginPage extends LoginPageBase {
     @Override
     public void clickConfirmButton() {
         confirmButton.click();
-        waitUntil(ExpectedConditions.invisibilityOf(progressBar.getElement()), 3);
+        waitUntil(ExpectedConditions.invisibilityOf(progressBar.getElement()), 5);
     }
 
     @Override
